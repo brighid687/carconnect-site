@@ -864,7 +864,7 @@
       <div data-reveal>
         <p class="kicker">Careers</p>
         <h2>Build your career in EVs with us.</h2>
-        <p class="sub">We're growing the Experience Advisor team at the Dongfeng Experience Centre. If you enjoy meeting people and would rather explain than push, we'd like to hear from you.</p>
+        <p class="sub">Join CarConnect SG, the sales and marketing arm behind Dongfeng Experience. We're growing the Experience Advisor team at the Dongfeng Experience Centre, and if you enjoy meeting people and would rather explain than push, we'd like to hear from you.</p>
         <ul class="ticks">
           <li><div><b>Represent award-winning EVs</b><span>The BOX, VIGO and 007, in one of Singapore's fastest-moving car segments.</span></div></li>
           <li><div><b>Learn it properly</b><span>Hands-on product and EV training, and a team that shares what works.</span></div></li>
@@ -878,7 +878,7 @@
       </div>
       <div class="reel" data-reveal>
         <blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/DSfUY71jw3l/?utm_source=ig_embed" data-instgrm-version="14">
-          <a href="https://www.instagram.com/p/DSfUY71jw3l/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Your EV career starts here. Join the Dongfeng Experience team.</b><span class="v">Watch on Instagram &rarr;</span></a>
+          <a href="https://www.instagram.com/p/DSfUY71jw3l/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Your EV career starts here. Join the Dongfeng Experience team at CarConnect.</b><span class="v">Watch on Instagram &rarr;</span></a>
         </blockquote>
       </div>
     </div>
@@ -1023,7 +1023,7 @@
           Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === e.target.id); });
         });
       }, { rootMargin: '-45% 0px -50% 0px' });
-      Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) sio.observe(s); });
+      document.querySelectorAll('main section[id]').forEach(function (s) { sio.observe(s); });
     }
 
     // trade-in form: validate, then open WhatsApp with the details filled in
