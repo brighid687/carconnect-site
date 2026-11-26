@@ -352,6 +352,7 @@
   .qform .pre em { display: grid; place-items: center; padding: 0 10px; border: 1.5px solid var(--line); border-right: 0; border-radius: 10px 0 0 10px; background: var(--soft); font-style: normal; color: var(--muted); font-weight: 600; }
   .qform .pre input { border-radius: 0 10px 10px 0; }
   .qform .consent { display: flex; gap: 10px; align-items: flex-start; margin: 4px 0 16px; font-weight: 500; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
+  .qform .consent a { color: var(--red); font-weight: 600; }
   .qform .consent input { width: 18px; height: 18px; min-height: 0; margin-top: 1px; flex: none; accent-color: var(--red); }
   .qform .btn { width: 100%; }
   .qform .small { margin: 12px 0 0; font-size: 12.5px; color: var(--muted); }
@@ -817,7 +818,7 @@
           <label>Registration year<select name="year" required><option value="">Select year</option></select></label>
           <label>Interested in<select name="model"><option>Not sure yet</option><option>Dongfeng BOX</option><option>Dongfeng VIGO</option><option>Dongfeng 007</option></select></label>
         </div>
-        <label class="consent"><input type="checkbox" name="consent" required><span>I agree to CarConnect SG contacting me about a trade-in quote and using these details for that purpose.</span></label>
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree to CarConnect SG contacting me about a trade-in quote and using these details for that purpose, as set out in our <a href="/privacy" target="_blank" rel="noopener">privacy notice</a>.</span></label>
         <button class="btn btn-red" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Get my quote on WhatsApp</button>
         <p class="small">Submitting opens WhatsApp with your details filled in, so you can check them before sending. Nothing is stored on this website. Quotes are indicative until we inspect the car.</p>
         <p class="err" role="alert" hidden>Please fill in every field and tick the consent box.</p>
@@ -907,7 +908,7 @@
       <div>
         <p><b>CarConnect SG Pte. Ltd.</b> · UEN 202318036M</p>
         <p>60 Jalan Lam Huat, #01-21, Carros Centre, Singapore 737869</p>
-        <p class="flinks"><a href="#trade-in">Trade-in quote</a> · <a href="#careers">Careers</a></p>
+        <p class="flinks"><a href="#trade-in">Trade-in quote</a> · <a href="#careers">Careers</a> · <a href="/privacy">Privacy notice</a></p>
       </div>
       <div>
         <p>© 2026 CarConnect SG Pte. Ltd.</p>
