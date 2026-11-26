@@ -1,16 +1,18 @@
 <!doctype html>
-<html lang="en-SG">
+<html lang="en-SG" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dongfeng Experience | CarConnect SG</title>
-<meta name="description" content="Dongfeng Experience by CarConnect SG Pte. Ltd. Authorised dealer for Dongfeng electric vehicles in Singapore. See and test drive the BOX, BOX-R, VIGO and 007 at Carros Centre.">
+<title>Dongfeng Experience by CarConnect | Authorised Dongfeng dealer, Singapore</title>
+<meta name="description" content="Dongfeng Experience by CarConnect, the sales and marketing arm behind Dongfeng Experience in Singapore. See the car, meet the Experience Advisors and test drive the BOX, VIGO and 007 at the Experience Centre, Carros Centre.">
 <meta name="theme-color" content="#0B1F3A">
 <meta name="color-scheme" content="light">
-<meta property="og:title" content="Dongfeng Experience | CarConnect SG">
-<meta property="og:description" content="Authorised dealer for Dongfeng electric vehicles in Singapore. Showroom at Carros Centre.">
+<meta property="og:title" content="Dongfeng Experience by CarConnect">
+<meta property="og:description" content="See the car. Meet the people. Then decide. Authorised Dongfeng dealer, Experience Centre at Carros Centre, Singapore.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230B1F3A'/%3E%3Crect x='7' y='21' width='18' height='3' fill='%23C8102E'/%3E%3Ctext x='16' y='18' font-family='Arial,Helvetica,sans-serif' font-size='11' font-weight='700' fill='%23fff' text-anchor='middle'%3EDE%3C/text%3E%3C/svg%3E">
+<meta property="og:image" content="https://carconnect.sg/assets/ev-hero-team.jpg">
+<link rel="icon" href="assets/logo-dongfeng-emblem.png">
+<script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
 <style>
   :root {
     --navy: #0B1F3A;
@@ -20,10 +22,10 @@
     --ink: #1A1F2B;
     --muted: #5B6475;
     --line: #E4E7EC;
-    --soft: #F6F7F9;
+    --soft: #F5F6F8;
     --white: #FFFFFF;
-    --radius: 10px;
-    --max: 1120px;
+    --radius: 12px;
+    --max: 1180px;
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
@@ -33,166 +35,813 @@
     color: var(--ink);
     font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   }
+  img { display: block; max-width: 100%; height: auto; }
   a { color: inherit; }
   .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  [id] { scroll-margin-top: 84px; }
 
-  /* header: navy bar, red accent line */
-  header { background: var(--navy); color: var(--white); border-bottom: 3px solid var(--red); }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 68px; }
-  .mark { display: flex; flex-direction: column; line-height: 1.15; text-decoration: none; }
-  .mark b { font-size: 15px; letter-spacing: .22em; font-weight: 700; }
-  .mark span { font-size: 11px; letter-spacing: .14em; color: #B9C3D3; text-transform: uppercase; }
-  .bar nav { display: flex; align-items: center; gap: 22px; font-size: 14px; }
-  .bar nav a.link { text-decoration: none; color: #D7DEE9; }
-  .bar nav a.link:hover { color: var(--white); }
+  /* header */
+  header { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.97); border-bottom: 3px solid var(--red); backdrop-filter: saturate(180%) blur(6px); }
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 72px; }
+  .brand { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+  .brand .df { height: 26px; width: auto; }
+  .brand .df-emblem { display: none; height: 30px; width: 30px; }
+  .brand .divider { width: 1px; height: 28px; background: #C9CED6; }
+  .brand .cc { height: 16px; width: auto; }
+  .bar nav { display: flex; align-items: center; gap: 22px; font-size: 14px; font-weight: 500; }
+  .bar nav a.link { text-decoration: none; color: var(--navy-2); }
+  .bar nav a.link:hover { color: var(--red); }
 
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-    min-height: 46px; padding: 0 22px; border-radius: 999px;
+    min-height: 48px; padding: 0 24px; border-radius: 999px;
     font-size: 15px; font-weight: 600; text-decoration: none; white-space: nowrap;
     transition: background-color .15s ease, color .15s ease, border-color .15s ease;
   }
+  .btn svg { width: 18px; height: 18px; flex: none; }
+  button.btn { border: 0; cursor: pointer; font-family: inherit; }
   .btn-red { background: var(--red); color: var(--white); }
   .btn-red:hover { background: var(--red-dark); }
   .btn-line { border: 1.5px solid var(--navy); color: var(--navy); }
   .btn-line:hover { background: var(--navy); color: var(--white); }
-  .btn-sm { min-height: 38px; padding: 0 16px; font-size: 14px; }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,.7); color: var(--white); }
+  .btn-ghost:hover { background: var(--white); color: var(--navy); }
+  .btn-sm { min-height: 40px; padding: 0 18px; font-size: 14px; }
   .btn:focus-visible, a:focus-visible { outline: 3px solid #7FA7E8; outline-offset: 3px; }
 
-  /* hero */
-  .hero { padding: 88px 0 72px; border-bottom: 1px solid var(--line); }
-  .eyebrow { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 18px;
-    font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
-  .eyebrow::before { content: ""; width: 28px; height: 2px; background: var(--red); }
-  h1 { margin: 0; max-width: 15ch; color: var(--navy); font-size: clamp(36px, 6vw, 60px); line-height: 1.05; letter-spacing: -.02em; }
-  .lede { max-width: 58ch; margin: 22px 0 32px; font-size: 18px; color: var(--muted); }
+  .kicker { display: inline-flex; align-items: center; gap: 10px; margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+  .kicker::before { content: ""; width: 28px; height: 2px; background: var(--red); }
+  h1, h2, h3 { color: var(--navy); letter-spacing: -.01em; }
+  h2 { margin: 0 0 12px; font-size: clamp(28px, 3.6vw, 40px); line-height: 1.12; }
+  .sub { margin: 0 0 36px; color: var(--muted); max-width: 60ch; font-size: 17px; }
+  section { padding: 96px 0; }
+
+  /* hero: white, people first */
+  .hero { padding: 64px 0 72px; }
+  .hero .two { display: grid; grid-template-columns: 1fr 1.08fr; gap: 56px; align-items: center; }
+  .hero h1 { margin: 0; font-size: clamp(40px, 5.4vw, 64px); line-height: 1.04; letter-spacing: -.025em; }
+  .hero h1 em { font-style: normal; color: var(--red); }
+  .lede { max-width: 46ch; margin: 22px 0 30px; font-size: 18px; color: var(--muted); }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .proof { display: flex; align-items: center; gap: 12px; margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+  .proof img { width: 28px; height: 28px; flex: none; }
+  .proof b { color: var(--navy); }
+  .hero figure { position: relative; margin: 0; }
+  .hero figure img { width: 100%; aspect-ratio: 6 / 5; object-fit: cover; border-radius: 16px; }
+  .hero figure::after { content: ""; position: absolute; left: -14px; bottom: -14px; width: 120px; height: 120px; border-left: 4px solid var(--red); border-bottom: 4px solid var(--red); border-bottom-left-radius: 18px; z-index: -1; }
+  .hero figcaption { position: absolute; right: 16px; bottom: 16px; padding: 8px 14px; border-radius: 999px; background: rgba(11,31,58,.86); color: var(--white); font-size: 13px; font-weight: 500; }
 
-  section { padding: 72px 0; }
-  h2 { margin: 0 0 8px; color: var(--navy); font-size: clamp(26px, 3.4vw, 34px); letter-spacing: -.01em; }
-  .sub { margin: 0 0 32px; color: var(--muted); max-width: 60ch; }
+  /* pillars index */
+  .pillars { padding: 0 0 24px; }
+  .pillars .row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .pillar { display: flex; flex-direction: column; padding: 22px 22px 20px; border: 1px solid var(--line); border-top: 3px solid var(--red); border-radius: var(--radius); text-decoration: none; background: var(--white); transition: box-shadow .2s ease, transform .2s ease; }
+  .pillar:hover { box-shadow: 0 14px 30px rgba(11,31,58,.10); transform: translateY(-2px); }
+  .pillar .no { font-size: 13px; font-weight: 700; color: var(--red); letter-spacing: .08em; }
+  .pillar b { margin: 6px 0 2px; font-size: 18px; color: var(--navy); line-height: 1.25; }
+  .pillar .job { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .pillar span.d { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.5; }
 
-  /* models */
-  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .card { border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 22px 26px; background: var(--white); position: relative; }
-  .card::before { content: ""; position: absolute; left: 22px; top: 0; width: 32px; height: 3px; background: var(--red); }
-  .card h3 { margin: 6px 0 8px; font-size: 22px; color: var(--navy); letter-spacing: .02em; }
-  .card p { margin: 0; color: var(--muted); font-size: 15px; }
-  .card .variants { margin-top: 12px; font-size: 13px; color: var(--navy-2); font-weight: 600; }
+  /* split layout used by pillar sections */
+  .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .split.flip > :first-child { order: 2; }
+  .photo { margin: 0; }
+  .photo img { width: 100%; aspect-ratio: 5 / 4; object-fit: cover; border-radius: var(--radius); }
+  .photo.tall img { aspect-ratio: 4 / 5; }
+  .photo figcaption { margin-top: 10px; font-size: 13px; color: var(--muted); }
+  .ticks { margin: 0; padding: 0; list-style: none; display: grid; gap: 16px; }
+  .ticks li { display: grid; grid-template-columns: 26px 1fr; gap: 12px; }
+  .ticks li::before { content: ""; width: 22px; height: 22px; margin-top: 2px; border-radius: 50%; background: #FDECEF url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C8102E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center / 14px no-repeat; }
+  .ticks b { display: block; color: var(--navy); font-size: 16px; }
+  .ticks span { color: var(--muted); font-size: 15px; }
 
-  .note { margin: 24px 0 0; padding-left: 14px; border-left: 3px solid var(--red); color: var(--navy-2); font-weight: 500; }
+  /* 01 team */
+  .team { margin-top: 80px; }
+  .team .intro { max-width: 62ch; margin-bottom: 26px; }
+  .team h3 { margin: 0 0 8px; font-size: 28px; line-height: 1.2; }
+  .team .intro > p:last-child { margin: 0; color: var(--muted); font-size: 16px; }
+  .people { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .person { margin: 0; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); }
+  .person img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .person figcaption { padding: 14px 18px 16px; border-top: 3px solid var(--red); }
+  .person b { display: block; color: var(--navy); font-size: 18px; }
+  .person span { color: var(--muted); font-size: 14px; }
+  .atwork { margin-top: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .atwork figure { margin: 0; position: relative; }
+  .atwork img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+  .atwork figcaption { position: absolute; left: 10px; right: 10px; bottom: 10px; padding: 7px 10px; border-radius: 8px; background: rgba(11,31,58,.86); color: var(--white); font-size: 13px; line-height: 1.4; }
+
+  /* 01 awards band */
+  .awards { margin-top: 72px; background: var(--navy); border-radius: 16px; border-top: 4px solid var(--red); padding: 40px 40px 34px; color: #C9D2E0; }
+  .awards .head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; margin-bottom: 26px; }
+  .awards h3 { margin: 0; color: var(--white); font-size: 22px; }
+  .awards .head p { margin: 0; font-size: 14px; }
+  .awards .groups { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+  .awards .group { border-top: 1px solid rgba(255,255,255,.14); padding-top: 18px; }
+  .awards .group > b { display: block; margin-bottom: 14px; color: var(--white); font-size: 14px; letter-spacing: .12em; text-transform: uppercase; }
+  .awards .badges { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: center; }
+  .awards .badges img { width: 100%; max-height: 104px; object-fit: contain; }
+
+  /* 02 models */
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--white); transition: box-shadow .2s ease, transform .2s ease; }
+  .card:hover { box-shadow: 0 14px 34px rgba(11,31,58,.12); transform: translateY(-2px); }
+  .card .pic { aspect-ratio: 4 / 3; overflow: hidden; background: var(--soft); }
+  .card .pic img { width: 100%; height: 100%; object-fit: cover; }
+  .card .body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; border-top: 3px solid var(--red); }
+  .card .tag { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .card h3 { margin: 4px 0 8px; font-size: 24px; letter-spacing: .02em; }
+  .card p { margin: 0 0 16px; color: var(--muted); font-size: 15px; }
+  .card .more { margin-top: auto; font-size: 15px; font-weight: 600; color: var(--red); text-decoration: none; }
+  .card .more:hover { text-decoration: underline; }
+  .ask { margin-top: 72px; }
+  .note { margin: 22px 0 0; padding-left: 14px; border-left: 3px solid var(--red); color: var(--navy-2); font-weight: 500; font-size: 15px; }
+
+  /* 03 journey */
+  .journey { background: var(--soft); }
+  .timeline { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .timeline::before { content: ""; position: absolute; top: 19px; left: 10%; right: 10%; height: 2px; background: #D5DAE2; }
+  .timeline li { position: relative; padding: 0 14px; text-align: center; counter-increment: t; }
+  .timeline { counter-reset: t; }
+  .timeline li::before { content: counter(t); position: relative; z-index: 1; display: grid; place-items: center; width: 40px; height: 40px; margin: 0 auto 16px; border-radius: 50%; background: var(--red); color: var(--white); font-weight: 700; box-shadow: 0 0 0 6px var(--soft); }
+  .timeline b { display: block; color: var(--navy); font-size: 16px; margin-bottom: 6px; }
+  .timeline span { color: var(--muted); font-size: 14px; line-height: 1.5; }
+  .journey .split { margin-top: 64px; }
+  .quote { margin: 0; padding: 26px 28px; background: var(--white); border-left: 4px solid var(--red); border-radius: 0 var(--radius) var(--radius) 0; color: var(--navy); font-size: 20px; line-height: 1.45; font-weight: 600; }
+  .quote small { display: block; margin-top: 10px; font-size: 14px; font-weight: 500; color: var(--muted); }
+
+  /* 04 community */
+  .mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .mosaic figure { margin: 0; position: relative; }
+  .mosaic img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--radius); }
+  .mosaic figcaption { position: absolute; left: 12px; bottom: 12px; right: 12px; padding: 8px 12px; border-radius: 8px; background: rgba(11,31,58,.86); color: var(--white); font-size: 13px; line-height: 1.4; }
+  .ways { margin-top: 36px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+  .way { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); }
+  .way .ic { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: #FDECEF; margin-bottom: 14px; }
+  .way .ic svg { width: 22px; height: 22px; stroke: var(--red); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .way b { display: block; color: var(--navy); font-size: 17px; margin-bottom: 4px; }
+  .way p { margin: 0; color: var(--muted); font-size: 15px; }
+  .way a { color: var(--red); font-weight: 600; text-decoration: none; }
+  .way a:hover { text-decoration: underline; }
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .tags span { padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--soft); color: var(--navy-2); font-size: 14px; font-weight: 600; }
+  .booth img { aspect-ratio: 1 / 1; object-position: center 70%; }
+  .way .social-links { line-height: 1.9; }
+  .careers { background: var(--soft); border-top: 1px solid var(--line); }
+  .careers .small-note { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
+  .careers .small-note a { color: var(--red); font-weight: 600; text-decoration: none; }
+  .careers .small-note a:hover { text-decoration: underline; }
+
+  /* slogans on model cards */
+  .card p.slogan { margin: -2px 0 10px; color: var(--red); font-size: 15px; font-weight: 800; font-style: italic; letter-spacing: .04em; text-transform: uppercase; }
+
+  /* instagram: official post embeds, loaded when the section is near */
+  .ig-ic { width: 18px; height: 18px; flex: none; }
+  .ig { margin-top: 64px; }
+  .ig .head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+  .ig h3 { margin: 0; font-size: 24px; }
+  .ig .head p { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+  .ig .ctrl { display: flex; align-items: center; gap: 10px; }
+  .ig .nav { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--line); background: var(--white); display: grid; place-items: center; cursor: pointer; color: var(--navy); }
+  .ig .nav:hover { border-color: var(--navy); }
+  .ig .nav svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+  .track { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 2px 2px 14px; scrollbar-width: thin; }
+  .track:focus-visible { outline: 3px solid #7FA7E8; outline-offset: 3px; }
+  .ig-item { flex: 0 0 340px; scroll-snap-align: start; }
+  .ig-fallback { margin: 0; padding: 0; border: 1px solid var(--line); border-radius: var(--radius); background: linear-gradient(165deg, #FDECEF 0%, #F5F6F8 55%, #FFFFFF 100%); }
+  .ig-fallback a { display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; min-height: 440px; padding: 24px; text-decoration: none; }
+  .ig-fallback .ig-ic { width: 40px; height: 40px; margin-bottom: auto; color: var(--red); }
+  .ig-fallback b { color: var(--navy); font-size: 18px; line-height: 1.3; }
+  .ig-fallback .v { color: var(--red); font-weight: 600; font-size: 14px; }
+  .reel { max-width: 400px; width: 100%; margin: 0 auto; }
+  .reel .ig-fallback a { min-height: 520px; }
+
+  /* footer socials */
+  .socials { display: flex; gap: 10px; margin-top: 16px; }
+  .socials a { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.28); color: var(--white); }
+  .socials a:hover { background: var(--white); color: var(--navy); }
+  .socials svg { width: 18px; height: 18px; }
 
   /* visit */
-  .visit { background: var(--soft); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .two { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: start; }
-  .panel { background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: 28px; }
-  .panel dl { margin: 0; display: grid; gap: 18px; }
-  .panel dt { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
-  .panel dd { margin: 4px 0 0; font-size: 16px; }
-  .panel dd a { color: var(--navy); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(11,31,58,.25); }
-  .panel dd a:hover { border-bottom-color: var(--navy); }
-  .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; counter-reset: s; }
-  .steps li { counter-increment: s; display: grid; grid-template-columns: 34px 1fr; gap: 12px; align-items: start; }
-  .steps li::before { content: counter(s); display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
-    background: var(--navy); color: var(--white); font-size: 14px; font-weight: 700; }
-  .steps b { display: block; color: var(--navy); }
+  .visit { border-top: 1px solid var(--line); }
+  .panel { background: var(--navy); color: var(--white); border-radius: var(--radius); padding: 32px; border-top: 4px solid var(--red); }
+  .panel dl { margin: 0; display: grid; gap: 22px; }
+  .panel dt { font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #9FB0C8; }
+  .panel dd { margin: 4px 0 0; font-size: 16px; color: #F1F4F8; }
+  .panel dd a { color: var(--white); font-weight: 600; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.35); }
+  .panel dd a:hover { border-bottom-color: var(--white); }
+  .panel .btn { margin-top: 26px; width: 100%; }
+  .steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 18px; counter-reset: s; }
+  .steps li { counter-increment: s; display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; }
+  .steps li::before { content: counter(s); display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--red); color: var(--white); font-size: 15px; font-weight: 700; }
+  .steps b { display: block; color: var(--navy); font-size: 17px; }
   .steps span { color: var(--muted); font-size: 15px; }
 
-  /* about */
-  .about p { max-width: 68ch; color: var(--muted); margin: 0 0 12px; }
-
-  footer { background: var(--navy); color: #C9D2E0; font-size: 14px; border-top: 3px solid var(--red); }
-  footer .wrap { padding-top: 32px; padding-bottom: 32px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+  footer { background: var(--navy); color: #C9D2E0; font-size: 14px; border-top: 4px solid var(--red); }
+  footer .top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; padding: 36px 0 24px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  footer .logos { display: flex; align-items: center; gap: 20px; }
+  footer .logos .df { height: 18px; width: auto; }
+  footer .logos .divider { width: 1px; height: 22px; background: rgba(255,255,255,.3); }
+  footer .logos .cc { height: 15px; width: auto; }
+  footer .tagline { margin: 10px 0 0; font-size: 13px; color: #9FB0C8; letter-spacing: .04em; }
+  footer .bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding: 20px 0 32px; }
   footer b { color: var(--white); }
   footer p { margin: 0 0 4px; }
+  footer .fine { color: #8D9BB2; font-size: 12px; }
+  footer .flinks { margin-top: 8px; }
+  footer .flinks a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,.35); }
+  footer .flinks a:hover { border-bottom-color: #fff; }
 
-  @media (max-width: 900px) {
-    .grid { grid-template-columns: repeat(2, 1fr); }
-    .two { grid-template-columns: 1fr; gap: 28px; }
-  }
-  @media (max-width: 560px) {
-    .wrap { padding: 0 16px; }
+  @media (max-width: 1100px) {
     .bar nav a.link { display: none; }
-    .hero { padding: 56px 0 48px; }
+  }
+  @media (max-width: 960px) {
+    .hero .two, .split { grid-template-columns: 1fr; gap: 36px; }
+    .split.flip > :first-child { order: 0; }
+    .pillars .row { grid-template-columns: 1fr 1fr; }
+    .grid { grid-template-columns: 1fr 1fr; }
+    .awards .groups { grid-template-columns: 1fr; }
+    .people { grid-template-columns: 1fr 1fr; }
+    .atwork { grid-template-columns: 1fr 1fr; }
+    .timeline { grid-template-columns: 1fr; gap: 22px; }
+    .timeline::before { top: 20px; bottom: 20px; left: 19px; right: auto; width: 2px; height: auto; }
+    .timeline li { display: grid; grid-template-columns: 40px 1fr; gap: 0 16px; text-align: left; padding: 0; }
+    .timeline li::before { grid-row: span 2; margin: 0; }
+    .ways { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .wrap { padding: 0 16px; }
+    .bar { min-height: 62px; }
+    .brand { gap: 12px; }
+    .brand .df { display: none; }
+    .brand .df-emblem { display: block; }
+    .brand .divider { height: 24px; }
+    .brand .cc { height: 11px; }
+    .bar nav .btn-sm { padding: 0 14px; font-size: 13px; min-height: 36px; }
+    section { padding: 64px 0; }
+    .hero { padding: 28px 0 48px; }
+    .hero .two > figure { order: -1; }
+    .hero figure::after { display: none; }
     .lede { font-size: 17px; }
     .actions .btn { width: 100%; }
-    section { padding: 52px 0; }
+    .pillars .row { grid-template-columns: 1fr; gap: 12px; }
+    .pillar { padding: 18px; }
     .grid { grid-template-columns: 1fr; }
-    .panel { padding: 22px; }
+    .awards { padding: 28px 20px 24px; margin-top: 56px; }
+    .awards .badges { gap: 12px; }
+    .awards .badges img { max-height: 64px; }
+    .ask, .journey .split { margin-top: 56px; }
+    .team { margin-top: 56px; }
+    .people, .atwork { gap: 12px; }
+    .atwork { grid-template-columns: 1fr 1fr; }
+    .atwork figcaption { left: 6px; right: 6px; bottom: 6px; padding: 5px 7px; font-size: 11px; }
+    .person figcaption { padding: 10px 12px 12px; }
+    .person b { font-size: 16px; }
+    .person span { font-size: 13px; }
+    .ig .ctrl { width: 100%; }
+    .ig .ctrl .btn { flex: 1; }
+    .ig-item { flex-basis: min(340px, 86vw); }
+    .quote { font-size: 18px; padding: 22px; }
+    .panel { padding: 24px; }
+    footer .logos .df { height: 14px; }
+    footer .logos .cc { height: 11px; }
+    footer .logos { gap: 14px; }
+  }
+
+  /* ---------- v8: team, specs, deliveries, trade-in ---------- */
+  .people { grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .person img { aspect-ratio: 1 / 1; object-fit: cover; background: #fff; transition: transform .5s cubic-bezier(.2,.7,.2,1); }
+  .person { transition: box-shadow .25s ease, transform .25s ease; }
+  .person:hover { box-shadow: 0 16px 36px rgba(11,31,58,.14); transform: translateY(-4px); }
+  .person:hover img { transform: scale(1.03); }
+  .person figcaption { padding: 12px 16px 14px; border-top: 0; }
+  .person b { font-size: 17px; }
+
+  .specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 2px 0 12px; }
+  .specs div { background: var(--soft); border-radius: 10px; padding: 10px 10px 9px; }
+  .specs dt { white-space: nowrap; font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .specs dd { margin: 2px 0 0; white-space: nowrap; color: var(--navy); font-size: 21px; font-weight: 800; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .specs dd small { font-size: 13px; font-weight: 600; color: var(--navy-2); }
+  .card .extra { margin: 0 0 16px; font-size: 13px; color: var(--navy-2); font-weight: 500; }
+  .card .more i { display: inline-block; font-style: normal; transition: transform .2s ease; }
+  .card .more:hover i { transform: translateX(4px); }
+  .card .pic img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .card:hover .pic img { transform: scale(1.05); }
+  .fineprint { margin: 18px 0 0; font-size: 12.5px; color: var(--muted); max-width: 90ch; }
+
+  .deliveries { margin-top: 72px; }
+  .deliveries .head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
+  .deliveries h3 { margin: 0 0 6px; font-size: 28px; line-height: 1.2; }
+  .deliveries .head p:last-child { margin: 0; color: var(--muted); font-size: 16px; max-width: 58ch; }
+  .dgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .dgrid figure { margin: 0; position: relative; overflow: hidden; border-radius: var(--radius); background: var(--white); box-shadow: 0 1px 0 var(--line); }
+  .dgrid img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .dgrid figure:hover img { transform: scale(1.05); }
+  .dgrid figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: baseline; gap: 10px; padding: 26px 14px 12px; background: linear-gradient(0deg, rgba(11,31,58,.88), rgba(11,31,58,0)); color: #fff; font-size: 13px; }
+  .dgrid figcaption b { font-size: 15px; }
+  .dgrid figcaption span { color: #D7DEE9; }
+
+  .tradein { background: linear-gradient(180deg, var(--white) 0%, var(--soft) 100%); border-top: 1px solid var(--line); }
+  .qform { background: var(--white); border: 1px solid var(--line); border-top: 4px solid var(--red); border-radius: var(--radius); padding: 28px; box-shadow: 0 18px 40px rgba(11,31,58,.08); }
+  .qform h3 { margin: 0 0 4px; font-size: 22px; }
+  .qform .hint { margin: 0 0 18px; color: var(--muted); font-size: 15px; }
+  .qform .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+  .qform label { display: grid; gap: 6px; font-size: 13px; font-weight: 600; color: var(--navy); }
+  .qform input, .qform select { width: 100%; min-height: 46px; padding: 0 12px; border: 1.5px solid var(--line); border-radius: 10px; background: #FBFBFC; font: inherit; font-size: 15px; color: var(--ink); transition: border-color .15s ease, box-shadow .15s ease; }
+  .qform input:focus, .qform select:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(11,31,58,.12); background: #fff; }
+  .qform .pre { display: flex; align-items: stretch; }
+  .qform .pre em { display: grid; place-items: center; padding: 0 10px; border: 1.5px solid var(--line); border-right: 0; border-radius: 10px 0 0 10px; background: var(--soft); font-style: normal; color: var(--muted); font-weight: 600; }
+  .qform .pre input { border-radius: 0 10px 10px 0; }
+  .qform .consent { display: flex; gap: 10px; align-items: flex-start; margin: 4px 0 16px; font-weight: 500; color: var(--muted); font-size: 13.5px; line-height: 1.45; }
+  .qform .consent input { width: 18px; height: 18px; min-height: 0; margin-top: 1px; flex: none; accent-color: var(--red); }
+  .qform .btn { width: 100%; }
+  .qform .small { margin: 12px 0 0; font-size: 12.5px; color: var(--muted); }
+  .qform .err { margin: 10px 0 0; color: var(--red); font-size: 13.5px; font-weight: 600; }
+  .qform .bad { border-color: var(--red) !important; }
+
+  /* ---------- motion and interaction ---------- */
+  .progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; transform-origin: 0 50%; transform: scaleX(0); background: var(--red); z-index: 20; }
+  header { transition: box-shadow .25s ease, background-color .25s ease; }
+  header.scrolled { box-shadow: 0 8px 24px rgba(11,31,58,.08); }
+  .bar { transition: min-height .25s ease; }
+  header.scrolled .bar { min-height: 60px; }
+  .bar nav a.link { position: relative; padding: 6px 0; }
+  .bar nav a.link::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--red); transform: scaleX(0); transform-origin: 0 50%; transition: transform .25s ease; }
+  .bar nav a.link:hover::after, .bar nav a.link.active::after { transform: scaleX(1); }
+  .bar nav a.link.active { color: var(--red); }
+
+  .pillar { position: relative; overflow: hidden; }
+  .pillar::before { content: ""; position: absolute; inset: 0; background: var(--navy); transform: translateY(101%); transition: transform .35s cubic-bezier(.2,.7,.2,1); z-index: 0; }
+  .pillar > * { position: relative; z-index: 1; transition: color .3s ease; }
+  .pillar:hover::before { transform: translateY(0); }
+  .pillar:hover b { color: #fff; }
+  .pillar:hover .d, .pillar:hover .job { color: #C9D2E0; }
+  .pillar:hover .no { color: #FF8A9B; }
+
+  .btn { position: relative; overflow: hidden; transition: background-color .15s ease, color .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease; }
+  .btn-red:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(200,16,46,.28); }
+  .atwork img, .photo img { transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+  .atwork figure { overflow: hidden; border-radius: var(--radius); }
+  .atwork figure:hover img, .photo:hover img { transform: scale(1.04); }
+  .photo { overflow: hidden; border-radius: var(--radius); }
+  .photo figcaption { position: relative; background: var(--white); }
+
+  .hero h1 .ln { display: block; overflow: hidden; }
+  .hero h1 .ln > span { display: inline-block; }
+
+  .totop { position: fixed; right: 18px; bottom: 18px; width: 46px; height: 46px; border-radius: 50%; border: 0; background: var(--navy); color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 24px rgba(11,31,58,.25); opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .25s ease, transform .25s ease; z-index: 15; }
+  .totop.show { opacity: 1; transform: none; pointer-events: auto; }
+  .totop svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+
+  .mcta { display: none; }
+
+  /* reveal on scroll (only when JS is running) */
+  .js [data-reveal] { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+  .js [data-reveal].in { opacity: 1; transform: none; }
+  .js .hero h1 .ln > span { transform: translateY(105%); transition: transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--d, 0s); }
+  .js .hero.ready h1 .ln > span { transform: none; }
+  .js .hero figure img { transform: scale(1.08); transition: transform 2.4s cubic-bezier(.2,.7,.2,1); }
+  .js .hero.ready figure img { transform: scale(1); }
+
+  @media (max-width: 1100px) {
+    .people { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 960px) {
+    .dgrid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 640px) {
+    .people { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .person figcaption { padding: 10px 12px 12px; }
+    .person b { font-size: 15px; }
+    .specs dd { font-size: 19px; }
+    .dgrid { grid-template-columns: 1fr; gap: 12px; }
+    .deliveries { margin-top: 56px; }
+    .qform { padding: 20px; }
+    .qform .row2 { grid-template-columns: 1fr; gap: 12px; margin-bottom: 12px; }
+    .totop { bottom: 84px; right: 14px; }
+    body { padding-bottom: 72px; }
+    .mcta { display: flex; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 16; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.97); border-top: 1px solid var(--line); box-shadow: 0 -8px 24px rgba(11,31,58,.08); transform: translateY(110%); transition: transform .3s ease; }
+    .mcta.show { transform: none; }
+    .mcta .btn { flex: 1; min-height: 46px; padding: 0 12px; font-size: 14px; }
+    .mcta .btn-line { flex: 0 0 auto; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+    .js [data-reveal], .js .hero h1 .ln > span, .js .hero figure img { opacity: 1 !important; transform: none !important; }
   }
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></g><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.6 1.6-1.6h1.7V4.4c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4V14h2.7v8h3.4Z"/></symbol>
+  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3Z"/></symbol>
+</svg>
+
+<div class="progress" aria-hidden="true"></div>
 <header>
   <div class="wrap bar">
-    <a class="mark" href="#top" aria-label="Dongfeng Experience, home">
-      <b>DONGFENG EXPERIENCE</b>
-      <span>by CarConnect</span>
+    <a class="brand" href="#top" aria-label="Dongfeng Experience by CarConnect, home">
+      <img class="df" src="assets/logo-dongfeng.png" alt="Dongfeng" width="184" height="26">
+      <img class="df-emblem" src="assets/logo-dongfeng-emblem.png" alt="Dongfeng" width="30" height="30">
+      <span class="divider" aria-hidden="true"></span>
+      <img class="cc" src="assets/logo-carconnect.png" alt="CarConnect" width="213" height="16">
     </a>
     <nav aria-label="Main">
-      <a class="link" href="#models">Models</a>
+      <a class="link" href="#dongfeng">Dongfeng</a>
+      <a class="link" href="#drive">The Drive</a>
+      <a class="link" href="#journey">The Journey</a>
+      <a class="link" href="#community">Community</a>
+      <a class="link" href="#trade-in">Trade-in</a>
       <a class="link" href="#visit">Visit</a>
-      <a class="link" href="#about">About</a>
       <a class="btn btn-red btn-sm" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Dongfeng%20Experience." rel="noopener">WhatsApp us</a>
     </nav>
   </div>
 </header>
 
 <main id="top">
-  <div class="hero">
-    <div class="wrap">
-      <p class="eyebrow">Authorised Dongfeng EV dealer · Singapore</p>
-      <h1>Dongfeng electric vehicles, in Singapore.</h1>
-      <p class="lede">See, sit in and test drive the BOX, BOX-R, VIGO and 007 at our showroom in Carros Centre. An Experience Advisor takes you through each model in person.</p>
-      <div class="actions">
-        <a class="btn btn-red" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Dongfeng%20Experience." rel="noopener">Arrange a visit on WhatsApp</a>
-        <a class="btn btn-line" href="tel:+6586903141">Call +65 8690 3141</a>
+  <section class="hero">
+    <div class="wrap two">
+      <div>
+        <p class="kicker">Dongfeng Experience by CarConnect</p>
+        <h1><span class="ln"><span>See the car.</span></span><span class="ln"><span style="--d:.12s">Meet the people.</span></span><span class="ln"><span style="--d:.24s"><em>Then decide.</em></span></span></h1>
+        <p class="lede">Dongfeng builds the cars. CarConnect builds the experience around them: Experience Advisors who explain rather than push, test drives at your pace, and support that carries on after delivery.</p>
+        <div class="actions">
+          <a class="btn btn-red" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Dongfeng%20Experience." rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Arrange a visit on WhatsApp</a>
+          <a class="btn btn-line" href="#drive">Explore the range</a>
+        </div>
+        <div class="proof">
+          <img src="assets/logo-dongfeng-emblem.png" alt="" width="28" height="28">
+          <span><b>Authorised Dongfeng dealer</b> · Experience Centre at Carros Centre</span>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <section id="models">
-    <div class="wrap">
-      <h2>Our models</h2>
-      <p class="sub">Four fully electric models. Come in to compare them side by side.</p>
-      <div class="grid">
-        <article class="card">
-          <h3>BOX</h3>
-          <p>An easy, compact city EV. Automatic parking makes it friendly for newer drivers.</p>
-        </article>
-        <article class="card">
-          <h3>BOX-R</h3>
-          <p>The BOX with a sportier styling and trim package.</p>
-        </article>
-        <article class="card">
-          <h3>VIGO</h3>
-          <p>An electric family SUV with a practical boot.</p>
-        </article>
-        <article class="card">
-          <h3>007</h3>
-          <p>A long estimated range, strong performance and a premium cabin.</p>
-          <p class="variants">Prestige · Premium · Performance</p>
-        </article>
-      </div>
-      <p class="note">For pricing, an Experience Advisor will go through the details with you at the showroom.</p>
+      <figure>
+        <img src="assets/ev-hero-team.jpg" alt="Experience Advisors Jian Yang, Jack and Jordan with the Dongfeng 007 at a Dongfeng roadshow" width="1331" height="1109">
+        <figcaption>Jian Yang, Jack and Jordan at a Dongfeng roadshow</figcaption>
+      </figure>
     </div>
   </section>
 
+  <section class="pillars" aria-label="The Dongfeng Experience">
+    <div class="wrap">
+      <div class="row">
+        <a class="pillar" href="#dongfeng"><span class="no">01</span><b>Experience Dongfeng</b><span class="job">Discover</span><span class="d">The brand, the people and the Experience Centre behind every car.</span></a>
+        <a class="pillar" href="#drive"><span class="no">02</span><b>Experience the Drive</b><span class="job">Understand</span><span class="d">The range, EV ownership explained, and a test drive at your pace.</span></a>
+        <a class="pillar" href="#journey"><span class="no">03</span><b>Experience the Journey</b><span class="job">Trust</span><span class="d">From your first visit to Delivery Day, and support long after.</span></a>
+        <a class="pillar" href="#community"><span class="no">04</span><b>Experience the Community</b><span class="job">Belong</span><span class="d">Owners, events and stories shared along the way.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 -->
+  <section id="dongfeng">
+    <div class="wrap">
+      <div class="split">
+        <figure class="photo">
+          <img src="assets/ev-dongfeng-booth.jpg" alt="An orange Dongfeng VIGO on the Dongfeng stand, with the Dongfeng sign lit up behind it" width="1200" height="960" loading="lazy">
+          <figcaption>The Dongfeng stand at The Car Expo 2025.</figcaption>
+        </figure>
+        <div>
+          <p class="kicker">01 · Experience Dongfeng</p>
+          <h2>Dongfeng builds the cars. We build the experience.</h2>
+          <p class="sub">CarConnect SG is the sales and marketing arm behind Dongfeng Experience in Singapore. Dongfeng is the brand. Our job is everything around it: how you discover it, understand it, buy it and live with it.</p>
+          <ul class="ticks">
+            <li><div><b>Authorised Dongfeng dealer</b><span>With the Dongfeng authorised service centre on the same site at Carros Centre.</span></div></li>
+            <li><div><b>The Experience Centre</b><span>The full range under one roof at Carros Centre, open every day.</span></div></li>
+            <li><div><b>Experience Advisors, by name</b><span>The same person looks after you from your first question to Delivery Day.</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="team">
+        <div class="intro">
+          <p class="kicker">Get to know us</p>
+          <h3>Meet your Experience Advisors</h3>
+          <p>The people you'll meet at the Experience Centre, at our events and on Delivery Day.</p>
+        </div>
+        <div class="people">
+          <figure class="person" data-reveal>
+            <img src="assets/team-jack.jpg" alt="Jack Lim, Experience Manager" width="640" height="640" loading="lazy">
+            <figcaption><b>Jack Lim</b><span>Experience Manager</span></figcaption>
+          </figure>
+          <figure class="person" data-reveal>
+            <img src="assets/team-jordan.jpg" alt="Jordan Kang, Experience Manager" width="640" height="640" loading="lazy">
+            <figcaption><b>Jordan Kang</b><span>Experience Manager</span></figcaption>
+          </figure>
+          <figure class="person" data-reveal>
+            <img src="assets/team-jianyang.jpg" alt="Mok Jian Yang, Senior Experience Advisor" width="640" height="640" loading="lazy">
+            <figcaption><b>Mok Jian Yang</b><span>Senior Experience Advisor</span></figcaption>
+          </figure>
+          <figure class="person" data-reveal>
+            <img src="assets/team-bryan.jpg" alt="Bryan Lee, Experience Advisor" width="640" height="640" loading="lazy">
+            <figcaption><b>Bryan Lee</b><span>Experience Advisor</span></figcaption>
+          </figure>
+          <figure class="person" data-reveal>
+            <img src="assets/team-wanying.jpg" alt="Wan Ying, Experience Advisor" width="640" height="640" loading="lazy">
+            <figcaption><b>Wan Ying</b><span>Experience Advisor</span></figcaption>
+          </figure>
+        </div>
+        <div class="atwork">
+          <figure>
+            <img src="assets/ev-jack-expo26.jpg" alt="Jack Lim, Experience Manager, at the Dongfeng stand" loading="lazy">
+            <figcaption>Jack at The Car Expo 2026</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-door.jpg" alt="Wan Ying, Experience Advisor, opening the door of a purple Dongfeng BOX" loading="lazy">
+            <figcaption>Wan Ying at the sgCarMart Carnival 2026</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-bryan-jack.jpg" alt="Bryan and Jack at the Dongfeng roadshow counter" loading="lazy">
+            <figcaption>Bryan and Jack at our roadshow</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-007-walkthrough.jpg" alt="An Experience Advisor walking a visitor around the Dongfeng 007" loading="lazy">
+            <figcaption>Walking through the 007 at The Car Expo 2026</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-roadshow-consult.jpg" alt="An Experience Advisor going through the details with a visitor" loading="lazy">
+            <figcaption>Going through the details at our roadshow</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-expo25-consult.jpg" alt="An Experience Advisor going through the details with visitors at a table" loading="lazy">
+            <figcaption>Talking it through at The Car Expo 2025</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-expo24-box.jpg" alt="An Experience Advisor walking a family through the Dongfeng BOX" loading="lazy">
+            <figcaption>Walking a family through the BOX at The Car Expo 2024</figcaption>
+          </figure>
+          <figure>
+            <img src="assets/ev-team-portrait.jpg" alt="Bryan Lee and fellow Experience Advisors at a table in front of a Dongfeng BOX" loading="lazy">
+            <figcaption>Bryan and the team at the sgCarMart Carnival 2026</figcaption>
+          </figure>
+        </div>
+      </div>
+
+<div class="awards">
+        <div class="head">
+          <h3>Recognised in Singapore's Car of the Year awards</h3>
+          <p>Awards won by the Dongfeng BOX and Dongfeng 007.</p>
+        </div>
+        <div class="groups">
+          <div class="group">
+            <b>Dongfeng BOX</b>
+            <div class="badges">
+              <img src="assets/award-box-sgcm.png" alt="sgCarMart Car of the Year 2025, Electric Hatchback of the Year" width="440" height="200" loading="lazy">
+              <img src="assets/award-box-motorist.png" alt="Motorist Car of the Year 2025, Cat A Electric Hatchback" width="440" height="229" loading="lazy">
+              <img src="assets/award-box-autoapp.png" alt="AutoApp Car of the Year 2026, Hatchback of the Year" width="392" height="300" loading="lazy">
+            </div>
+          </div>
+          <div class="group">
+            <b>Dongfeng 007</b>
+            <div class="badges">
+              <img src="assets/award-007-sgcm.png" alt="sgCarMart Car of the Year 2025, Electric Sedan of the Year" width="440" height="204" loading="lazy">
+              <img src="assets/award-007-motorist.png" alt="Motorist Car of the Year 2025, Cat B Electric Sedan" width="440" height="229" loading="lazy">
+              <img src="assets/award-007-oneshift.png" alt="OneShift Car of the Year 2025 Highlights, Premium EV Sedan (Cat B) of the Year" width="319" height="300" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 -->
+  <section id="drive" class="drive" style="padding-top:0">
+    <div class="wrap">
+      <p class="kicker">02 · Experience the Drive</p>
+      <h2>Understand it before you own it.</h2>
+      <p class="sub">Three fully electric models, explained properly. Sit in every seat, ask anything, then take the one you like for a drive.</p>
+      <div class="grid">
+        <article class="card" data-reveal>
+          <div class="pic"><img src="assets/model-box.jpg" alt="Dongfeng BOX in purple" width="960" height="720" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Compact hatchback · Cat A</span>
+            <h3>BOX &amp; BOX-R</h3>
+            <p class="slogan">Everyone can own a BOX</p>
+            <p>An easy, compact city EV with automatic parking. The BOX-R adds sportier styling and trim.</p>
+            <dl class="specs">
+              <div><dt>Range</dt><dd><span data-count="430">430</span><small> km</small></dd></div>
+              <div><dt>Battery</dt><dd><span data-count="42.3" data-dec="1">42.3</span><small> kWh</small></dd></div>
+              <div><dt>DC charge</dt><dd><span data-count="70">70</span><small> kW</small></dd></div>
+            </dl>
+            <p class="extra">95 hp · LFP battery · 326 L boot plus front storage</p>
+            <a class="more" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20test%20drive%20the%20Dongfeng%20BOX." rel="noopener">Arrange a test drive <i aria-hidden="true">&rarr;</i></a>
+          </div>
+        </article>
+        <article class="card" data-reveal>
+          <div class="pic"><img src="assets/model-vigo.jpg" alt="Dongfeng VIGO in green" width="960" height="720" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Family SUV · Cat A</span>
+            <h3>VIGO</h3>
+            <p class="slogan">VIGO where you go</p>
+            <p>An electric family SUV with a big boot and a split tailgate, for weekdays and weekends away.</p>
+            <dl class="specs">
+              <div><dt>Range</dt><dd><span data-count="471">471</span><small> km</small></dd></div>
+              <div><dt>Battery</dt><dd><span data-count="51.87" data-dec="2">51.87</span><small> kWh</small></dd></div>
+              <div><dt>DC charge</dt><dd><span data-count="167">167</span><small> kW</small></dd></div>
+            </dl>
+            <p class="extra">500 L boot · V2L to power your gear · panoramic sunroof</p>
+            <a class="more" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20test%20drive%20the%20Dongfeng%20VIGO." rel="noopener">Arrange a test drive <i aria-hidden="true">&rarr;</i></a>
+          </div>
+        </article>
+        <article class="card" data-reveal>
+          <div class="pic"><img src="assets/model-007.jpg" alt="Dongfeng 007 in silver" width="960" height="720" loading="lazy"></div>
+          <div class="body">
+            <span class="tag">Premium sedan · Cat A &amp; B</span>
+            <h3>007</h3>
+            <p class="slogan">Be your own agent</p>
+            <p>A sleek electric fastback with a premium cabin, in three variants from Cat A to dual-motor performance.</p>
+            <dl class="specs">
+              <div><dt>Max range</dt><dd><span data-count="650">650</span><small> km</small></dd></div>
+              <div><dt>Max power</dt><dd><span data-count="400">400</span><small> kW</small></dd></div>
+              <div><dt>DC charge</dt><dd><span data-count="200">200</span><small> kW</small></dd></div>
+            </dl>
+            <p class="extra">0–100 km/h in 3.9 s (dual motor) · 452 L boot plus front storage</p>
+            <a class="more" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20test%20drive%20the%20Dongfeng%20007." rel="noopener">Arrange a test drive <i aria-hidden="true">&rarr;</i></a>
+          </div>
+        </article>
+      </div>
+      <p class="fineprint">Specifications are manufacturer-claimed and vary by variant. Range is the claimed CLTC estimate and depends on driving style, weather and conditions. Your Experience Advisor will confirm the details for the variant you choose.</p>
+
+      <div class="split flip ask">
+        <figure class="photo tall">
+          <img src="assets/ev-expo25-drive.jpg" alt="A Dongfeng Experience Advisor showing a visitor the driver's seat" width="624" height="936" loading="lazy">
+          <figcaption>Taking a seat at The Car Expo 2025.</figcaption>
+        </figure>
+        <div>
+          <p class="kicker">Ask the Experience Advisors</p>
+          <h2>No question is too basic.</h2>
+          <p class="sub">Switching to electric raises fair questions. Your Experience Advisor answers them in plain terms, with the car in front of you.</p>
+          <ul class="ticks">
+            <li><div><b>Charging</b><span>At home, at work and on the go, and what suits your routine.</span></div></li>
+            <li><div><b>Range in real life</b><span>What everyday Singapore driving looks like on a single charge.</span></div></li>
+            <li><div><b>Costs and paperwork</b><span>Pricing, COE and financing, gone through with you in person.</span></div></li>
+            <li><div><b>The right model</b><span>Which car fits how you actually drive, even if that's not the biggest one.</span></div></li>
+          </ul>
+          <p class="note">Pricing is discussed at the Experience Centre, so it reflects the current COE and your situation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 -->
+  <section id="journey" class="journey">
+    <div class="wrap">
+      <p class="kicker">03 · Experience the Journey</p>
+      <h2>With you from first visit to years later.</h2>
+      <p class="sub">Buying the car takes a day. Owning it takes years. Here's what happens along the way.</p>
+      <ol class="timeline">
+        <li><b>Visit and test drive</b><span>See the range and drive the model you like, at your pace.</span></li>
+        <li><b>Your options, explained</b><span>Pricing, COE and financing, gone through in person.</span></li>
+        <li><b>Paperwork, handled</b><span>Registration and the details, taken care of for you.</span></li>
+        <li><b>Delivery Day</b><span>Collect your car at Carros Centre, with the controls and charging walked through.</span></li>
+        <li><b>Still here after</b><span>The Dongfeng authorised service centre is on the same site, and your Experience Advisor stays your contact.</span></li>
+      </ol>
+
+      <div class="deliveries">
+        <div class="head">
+          <div>
+            <p class="kicker">Delivery Day</p>
+            <h3>Happy owners, real handovers.</h3>
+            <p>Every new owner collects their car at the Experience Centre, with their Experience Advisor beside them.</p>
+          </div>
+          <a class="btn btn-line btn-sm" href="https://www.instagram.com/dongfeng.experience/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg>More on Instagram</a>
+        </div>
+        <div class="dgrid">
+          <figure data-reveal><img src="assets/deliv-jack-box.jpg" alt="New owners with their pink Dongfeng BOX, tied with a red bow, beside Experience Manager Jack Lim" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng BOX</b><span>with Jack Lim</span></figcaption></figure>
+          <figure data-reveal><img src="assets/deliv-jordan-007.jpg" alt="A new owner with his white Dongfeng 007 beside Experience Manager Jordan Kang" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng 007</b><span>with Jordan Kang</span></figcaption></figure>
+          <figure data-reveal><img src="assets/deliv-jianyang-vigo.jpg" alt="New owners with their green Dongfeng VIGO beside Senior Experience Advisor Mok Jian Yang" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng VIGO</b><span>with Mok Jian Yang</span></figcaption></figure>
+          <figure data-reveal><img src="assets/deliv-jack-007.jpg" alt="A new owner with his cyan Dongfeng 007 beside Experience Manager Jack Lim" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng 007</b><span>with Jack Lim</span></figcaption></figure>
+          <figure data-reveal><img src="assets/deliv-jordan-bryan-vigo.jpg" alt="A new owner with his white Dongfeng VIGO beside Jordan Kang and Bryan Lee" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng VIGO</b><span>with Jordan Kang and Bryan Lee</span></figcaption></figure>
+          <figure data-reveal><img src="assets/deliv-bryan-vigo.jpg" alt="A new owner shaking hands with Experience Advisor Bryan Lee in front of an orange Dongfeng VIGO" width="900" height="675" loading="lazy"><figcaption><b>Dongfeng VIGO</b><span>with Bryan Lee</span></figcaption></figure>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="reel">
+          <blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/reel/DgCAZlFTp33/?utm_source=ig_embed" data-instgrm-version="14">
+            <a href="https://www.instagram.com/reel/DgCAZlFTp33/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Experience the Journey: inside the new Delivery Experience Room</b><span class="v">Watch on Instagram &rarr;</span></a>
+          </blockquote>
+        </div>
+        <div>
+          <blockquote class="quote">"You should leave every conversation better informed, never pressured."<small>The standard every Experience Advisor works to.</small></blockquote>
+          <ul class="ticks" style="margin-top:28px">
+            <li><div><b>One point of contact</b><span>No passing you between departments.</span></div></li>
+            <li><div><b>Real timelines</b><span>We tell you when your car will arrive, and keep you updated if that changes.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 -->
+  <section id="community" class="community">
+    <div class="wrap">
+      <div class="split">
+        <div>
+          <p class="kicker">04 · Experience the Community</p>
+          <h2>Join the people who already drive one.</h2>
+          <p class="sub">Dongfeng is better with company. Meet the team and other drivers at our events and pop-ups, and follow along for delivery days, owner stories and what's new.</p>
+          <div class="tags" aria-label="Community hashtags">
+            <span>#EveryoneCanOwnABOX</span>
+            <span>#VIGOWhereYouGo</span>
+            <span>#BeYourOwnAgent007</span>
+          </div>
+        </div>
+        <figure class="photo booth">
+          <img src="assets/ev-community-bear.jpg" alt="A young visitor running up to the Dongfeng bear mascot beside a Dongfeng BOX at the Dongfeng stand" width="1100" height="1155" loading="lazy">
+          <figcaption>Meeting the Dongfeng bear at The Car Expo 2024.</figcaption>
+        </figure>
+      </div>
+
+      <div class="ig">
+        <div class="head">
+          <div>
+            <h3>From our Instagram</h3>
+            <p>Delivery days, owner stories and what's new at the Experience Centre.</p>
+          </div>
+          <div class="ctrl">
+            <button class="nav" type="button" data-ig-nav="prev" aria-label="Previous posts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+            <button class="nav" type="button" data-ig-nav="next" aria-label="Next posts"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            <a class="btn btn-red btn-sm" href="https://www.instagram.com/dongfeng.experience/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ig"/></svg>Follow @dongfeng.experience</a>
+          </div>
+        </div>
+        <div id="ig-track" class="track" tabindex="0" aria-label="Instagram posts from @dongfeng.experience">
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/DgCAAj-gwpO/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DgCAAj-gwpO/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Delivery Day: a Dongfeng 007 with Jordan Kang, Experience Manager</b><span class="v">View on Instagram &rarr;</span></a></blockquote></div>
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/reel/DfyTzDGvMXs/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DfyTzDGvMXs/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Owner story: Mr Ong and his Dongfeng BOX-R</b><span class="v">Watch on Instagram &rarr;</span></a></blockquote></div>
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/Dfr38zfv9o_/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/Dfr38zfv9o_/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Delivery Day: a Dongfeng VIGO with Winest Tan</b><span class="v">View on Instagram &rarr;</span></a></blockquote></div>
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/DgJvpIOvLHr/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DgJvpIOvLHr/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>VIGO where you go. Go further, stay a little longer.</b><span class="v">View on Instagram &rarr;</span></a></blockquote></div>
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/reel/DfpQ7IdPd3B/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/reel/DfpQ7IdPd3B/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>AI knows the specs. Can it replace experience?</b><span class="v">Watch on Instagram &rarr;</span></a></blockquote></div>
+          <div class="ig-item"><blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/DQmBBk7jxRd/?utm_source=ig_embed" data-instgrm-version="14"><a href="https://www.instagram.com/p/DQmBBk7jxRd/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Dongfeng 007. Be your own agent.</b><span class="v">View on Instagram &rarr;</span></a></blockquote></div>
+        </div>
+      </div>
+
+      <div class="ways">
+        <div class="way">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+          <b>Events and pop-ups</b>
+          <p>From motor shows to weekend pop-ups, come say hello and try the cars.</p>
+        </div>
+        <div class="way">
+          <div class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.3A8 8 0 0 1 4 12Z"/><path d="M9 11h6M9 14h4"/></svg></div>
+          <b>Follow along</b>
+          <p class="social-links"><a href="https://www.instagram.com/dongfeng.experience/" target="_blank" rel="noopener">Instagram @dongfeng.experience</a><br><a href="https://www.facebook.com/dongfengexperience.sg/" target="_blank" rel="noopener">Facebook: Dongfeng Experience Singapore</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- trade-in -->
+  <section id="trade-in" class="tradein">
+    <div class="wrap split" style="align-items:start">
+      <div data-reveal>
+        <p class="kicker">Trade-in quote</p>
+        <h2>A fair price for your current car.</h2>
+        <p class="sub">Our quoting system values your car against live listings of the same model and registration year in Singapore's used-car market. No guesswork, no lowball opening offer.</p>
+        <ul class="ticks">
+          <li><div><b>Live market data</b><span>Priced against what comparable cars are listed for today, not a rate card from last quarter.</span></div></li>
+          <li><div><b>Your remaining COE and rebates counted</b><span>The paper value left in your car is built into the quote.</span></div></li>
+          <li><div><b>Checked by a person</b><span>Every quote is reviewed by our team before it's final, and confirmed when we see the car.</span></div></li>
+        </ul>
+      </div>
+      <form class="qform" id="tradein-form" data-reveal novalidate>
+        <h3>Get your trade-in quote</h3>
+        <p class="hint">Leave your details and an Experience Advisor will WhatsApp you.</p>
+        <div class="row2">
+          <label>Full name<input name="name" autocomplete="name" required placeholder="Your name"></label>
+          <label>Mobile<span class="pre"><em>+65</em><input name="mobile" inputmode="tel" autocomplete="tel-national" required pattern="[3689][0-9]{7}" maxlength="8" placeholder="8-digit number"></span></label>
+        </div>
+        <div class="row2">
+          <label>Car plate<input name="plate" required placeholder="e.g. SMA1234X" autocapitalize="characters" maxlength="12"></label>
+          <label>Make and model<input name="car" required placeholder="e.g. Toyota Corolla Altis"></label>
+        </div>
+        <div class="row2">
+          <label>Registration year<select name="year" required><option value="">Select year</option></select></label>
+          <label>Interested in<select name="model"><option>Not sure yet</option><option>Dongfeng BOX</option><option>Dongfeng VIGO</option><option>Dongfeng 007</option></select></label>
+        </div>
+        <label class="consent"><input type="checkbox" name="consent" required><span>I agree to CarConnect SG contacting me about a trade-in quote and using these details for that purpose.</span></label>
+        <button class="btn btn-red" type="submit"><svg aria-hidden="true"><use href="#wa"/></svg>Get my quote on WhatsApp</button>
+        <p class="small">Submitting opens WhatsApp with your details filled in, so you can check them before sending. Nothing is stored on this website. Quotes are indicative until we inspect the car.</p>
+        <p class="err" role="alert" hidden>Please fill in every field and tick the consent box.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- visit -->
   <section id="visit" class="visit">
-    <div class="wrap two">
+    <div class="wrap split" style="align-items:start">
       <div>
-        <h2>Visit the showroom</h2>
+        <p class="kicker">Visit the Experience Centre</p>
+        <h2>Come and experience it yourself.</h2>
         <p class="sub">Message us to arrange a visit or a test drive, and an Experience Advisor will be ready for you.</p>
         <ol class="steps">
           <li><div><b>Message us</b><span>On WhatsApp or by phone, with the model you'd like to see.</span></div></li>
           <li><div><b>Pick a time</b><span>A weekday or the weekend, whichever suits you.</span></div></li>
-          <li><div><b>See it and drive it</b><span>Your Experience Advisor goes through the car and the next steps with you. Allow about an hour, including the test drive.</span></div></li>
+          <li><div><b>See it and drive it</b><span>Allow about an hour, including the test drive.</span></div></li>
         </ol>
       </div>
       <div class="panel">
         <dl>
           <div>
-            <dt>Showroom</dt>
+            <dt>Experience Centre</dt>
             <dd>60 Jalan Lam Huat, #01-21<br>Carros Centre, Singapore 737869<br>
               <a href="https://www.google.com/maps/search/?api=1&amp;query=60%20Jalan%20Lam%20Huat%20Carros%20Centre%20Singapore%20737869" rel="noopener">Open in Google Maps</a></dd>
           </div>
@@ -205,29 +854,215 @@
             <dd><a href="https://wa.me/6586903141" rel="noopener">+65 8690 3141</a></dd>
           </div>
         </dl>
+        <a class="btn btn-red" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20arrange%20a%20visit%20to%20Dongfeng%20Experience." rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Arrange a visit on WhatsApp</a>
       </div>
     </div>
   </section>
-
-  <section id="about" class="about">
-    <div class="wrap">
-      <h2>About us</h2>
-      <p>Dongfeng Experience is run by CarConnect SG Pte. Ltd., an authorised dealer for Dongfeng electric vehicles in Singapore under Volt Auto, and part of Invictus Automobile Group.</p>
-      <p>We keep it simple: honest answers, a proper look at the car, and a test drive before any decision.</p>
+  <!-- careers -->
+  <section id="careers" class="careers">
+    <div class="wrap split">
+      <div data-reveal>
+        <p class="kicker">Careers</p>
+        <h2>Build your career in EVs with us.</h2>
+        <p class="sub">We're growing the Experience Advisor team at the Dongfeng Experience Centre. If you enjoy meeting people and would rather explain than push, we'd like to hear from you.</p>
+        <ul class="ticks">
+          <li><div><b>Represent award-winning EVs</b><span>The BOX, VIGO and 007, in one of Singapore's fastest-moving car segments.</span></div></li>
+          <li><div><b>Learn it properly</b><span>Hands-on product and EV training, and a team that shares what works.</span></div></li>
+          <li><div><b>Work with modern tools</b><span>From live-data trade-in quotes to digital enquiry handling, built in-house.</span></div></li>
+        </ul>
+        <div class="actions" style="margin-top:28px">
+          <a class="btn btn-red" href="mailto:enquiries@carconnect.sg?subject=Experience%20Advisor%20application">Email your CV</a>
+          <a class="btn btn-line" href="https://www.instagram.com/p/DSfUY71jw3l/" target="_blank" rel="noopener">Watch on Instagram</a>
+        </div>
+        <p class="small-note">Send your CV to <a href="mailto:enquiries@carconnect.sg?subject=Experience%20Advisor%20application">enquiries@carconnect.sg</a> with "Experience Advisor" in the subject.</p>
+      </div>
+      <div class="reel" data-reveal>
+        <blockquote class="instagram-media ig-fallback" data-instgrm-permalink="https://www.instagram.com/p/DSfUY71jw3l/?utm_source=ig_embed" data-instgrm-version="14">
+          <a href="https://www.instagram.com/p/DSfUY71jw3l/" target="_blank" rel="noopener"><svg class="ig-ic" aria-hidden="true"><use href="#ig"/></svg><b>Your EV career starts here. Join the Dongfeng Experience team.</b><span class="v">Watch on Instagram &rarr;</span></a>
+        </blockquote>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <div class="wrap">
-    <div>
-      <p><b>CarConnect SG Pte. Ltd.</b> · UEN 202318036M</p>
-      <p>60 Jalan Lam Huat, #01-21, Carros Centre, Singapore 737869</p>
+    <div class="top">
+      <div>
+        <div class="logos">
+          <img class="df" src="assets/logo-dongfeng-white.png" alt="Dongfeng" width="117" height="18">
+          <span class="divider" aria-hidden="true"></span>
+          <img class="cc" src="assets/logo-carconnect-white.png" alt="CarConnect" width="200" height="15">
+        </div>
+        <p class="tagline">CarConnect is the sales and marketing arm behind Dongfeng Experience.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/dongfeng.experience/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true"><use href="#ig"/></svg></a>
+          <a href="https://www.facebook.com/dongfengexperience.sg/" target="_blank" rel="noopener" aria-label="Facebook"><svg aria-hidden="true"><use href="#fb"/></svg></a>
+          <a href="https://wa.me/6586903141" rel="noopener" aria-label="WhatsApp"><svg aria-hidden="true"><use href="#wa"/></svg></a>
+        </div>
+      </div>
+      <a class="btn btn-red btn-sm" href="https://wa.me/6586903141" rel="noopener">WhatsApp +65 8690 3141</a>
     </div>
-    <div>
-      <p>© 2026 CarConnect SG Pte. Ltd.</p>
+    <div class="bottom">
+      <div>
+        <p><b>CarConnect SG Pte. Ltd.</b> · UEN 202318036M</p>
+        <p>60 Jalan Lam Huat, #01-21, Carros Centre, Singapore 737869</p>
+        <p class="flinks"><a href="#trade-in">Trade-in quote</a> · <a href="#careers">Careers</a></p>
+      </div>
+      <div>
+        <p>© 2026 CarConnect SG Pte. Ltd.</p>
+        <p class="fine">Dongfeng and the Dongfeng logo are trademarks of their respective owner. Award marks belong to their publishers.</p>
+      </div>
     </div>
   </div>
 </footer>
+<button class="totop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="mcta">
+  <a class="btn btn-red" href="https://wa.me/6586903141?text=Hi%2C%20I%27d%20like%20to%20book%20a%20test%20drive." rel="noopener"><svg aria-hidden="true"><use href="#wa"/></svg>Book a test drive</a>
+  <a class="btn btn-line" href="#trade-in">Trade-in quote</a>
+</div>
+<script>
+  (function () {
+    // Load Instagram's embed script only when a post is close to the screen.
+    var posts = document.querySelectorAll('.instagram-media');
+    var loaded = false;
+    function load() {
+      if (loaded) return; loaded = true;
+      var s = document.createElement('script');
+      s.async = true; s.src = 'https://www.instagram.com/embed.js';
+      document.body.appendChild(s);
+    }
+    if (posts.length) {
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { load(); io.disconnect(); } });
+        }, { rootMargin: '800px 0px' });
+        posts.forEach(function (el) { io.observe(el); });
+      } else { load(); }
+    }
+
+    // ---------- v8: motion, scrollspy, counters, trade-in form ----------
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var header = document.querySelector('header');
+    var bar = document.querySelector('.progress');
+    var totop = document.querySelector('.totop');
+    var mcta = document.querySelector('.mcta');
+    var hero = document.querySelector('.hero');
+
+    // hero entrance
+    requestAnimationFrame(function () { setTimeout(function () { hero && hero.classList.add('ready'); }, 60); });
+
+    // stagger siblings, then reveal on scroll
+    document.querySelectorAll('.grid, .people, .atwork, .dgrid, .pillars .row').forEach(function (g) {
+      Array.prototype.forEach.call(g.children, function (c, i) { c.style.setProperty('--d', (i % 6) * 0.08 + 's'); });
+    });
+    document.querySelectorAll('.pillars .pillar, .atwork figure, section h2, section .sub, .awards, .timeline li, .split > *').forEach(function (el) {
+      if (!el.hasAttribute('data-reveal')) el.setAttribute('data-reveal', '');
+    });
+    var counted = new WeakSet();
+    function countUp(el) {
+      if (counted.has(el)) return; counted.add(el);
+      var end = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-dec') || '0', 10);
+      if (reduce) { el.textContent = end.toFixed(dec); return; }
+      var t0 = null, dur = 1100;
+      function step(t) {
+        if (!t0) t0 = t;
+        var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = (end * e).toFixed(dec);
+        if (p < 1) requestAnimationFrame(step); else el.textContent = end.toFixed(dec);
+      }
+      requestAnimationFrame(step);
+    }
+    if ('IntersectionObserver' in window) {
+      var rio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          e.target.classList.add('in');
+          e.target.querySelectorAll && e.target.querySelectorAll('[data-count]').forEach(countUp);
+          rio.unobserve(e.target);
+        });
+      }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { rio.observe(el); });
+    } else {
+      document.querySelectorAll('[data-reveal]').forEach(function (el) { el.classList.add('in'); });
+    }
+
+    var pending = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+    // header, progress bar, back-to-top, mobile CTA
+    var ticking = false;
+    function onScroll() {
+      var y = window.scrollY || window.pageYOffset;
+      var h = document.documentElement.scrollHeight - window.innerHeight;
+      header.classList.toggle('scrolled', y > 10);
+      if (bar) bar.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+      var past = hero ? y > hero.offsetTop + hero.offsetHeight - 80 : y > 600;
+      totop && totop.classList.toggle('show', y > 900);
+      mcta && mcta.classList.toggle('show', past);
+      // safety net: reveal anything already scrolled past (fast scrolls, jump links)
+      var vh = window.innerHeight;
+      for (var i = pending.length - 1; i >= 0; i--) {
+        var el = pending[i];
+        if (el.classList.contains('in')) { pending.splice(i, 1); continue; }
+        if (el.getBoundingClientRect().top < vh * 0.94) {
+          el.classList.add('in'); el.querySelectorAll('[data-count]').forEach(countUp); pending.splice(i, 1);
+        }
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+    onScroll();
+    totop && totop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); });
+
+    // scrollspy for the nav
+    var links = {};
+    document.querySelectorAll('.bar nav a.link').forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    if ('IntersectionObserver' in window) {
+      var sio = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          Object.keys(links).forEach(function (k) { links[k].classList.toggle('active', k === e.target.id); });
+        });
+      }, { rootMargin: '-45% 0px -50% 0px' });
+      Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) sio.observe(s); });
+    }
+
+    // trade-in form: validate, then open WhatsApp with the details filled in
+    var form = document.getElementById('tradein-form');
+    if (form) {
+      var ysel = form.querySelector('select[name=year]');
+      var now = new Date().getFullYear();
+      for (var yr = now; yr >= now - 20; yr--) { var o = document.createElement('option'); o.textContent = yr; ysel.appendChild(o); }
+      var err = form.querySelector('.err');
+      form.addEventListener('submit', function (ev) {
+        ev.preventDefault();
+        var ok = true;
+        form.querySelectorAll('[required]').forEach(function (f) {
+          var bad = f.type === 'checkbox' ? !f.checked : !f.checkValidity() || !f.value.trim();
+          f.classList.toggle('bad', bad); if (bad) ok = false;
+        });
+        err.hidden = ok;
+        if (!ok) return;
+        var d = new FormData(form);
+        var msg = 'Hi, I\'d like a trade-in quote.%0A' +
+          ['Name: ' + d.get('name'), 'Mobile: +65 ' + d.get('mobile'), 'Car plate: ' + String(d.get('plate')).toUpperCase().replace(/\s+/g, ''),
+           'Car: ' + d.get('car'), 'Registration year: ' + d.get('year'), 'Interested in: ' + d.get('model')]
+            .map(encodeURIComponent).join('%0A');
+        window.open('https://wa.me/6586903141?text=' + msg, '_blank', 'noopener');
+      });
+      form.querySelectorAll('input, select').forEach(function (f) {
+        f.addEventListener('input', function () { f.classList.remove('bad'); });
+      });
+    }
+
+    // Carousel arrows
+    var track = document.getElementById('ig-track');
+    document.querySelectorAll('[data-ig-nav]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var step = Math.min(track.clientWidth * 0.9, 712);
+        track.scrollBy({ left: b.getAttribute('data-ig-nav') === 'next' ? step : -step, behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
